@@ -18,9 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Downloading required packages 
-        run: apt-get update
-        
       - name: Install python
         run: apt-get install -y python python3-pip
         
