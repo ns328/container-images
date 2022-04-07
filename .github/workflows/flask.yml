@@ -24,5 +24,8 @@ jobs:
       - name: tag image
         run: docker tag my-flask-app:v1 ghcr.io/ns328/container-images/my-flask-app:v1
         
+      - name: give authentication
+        run: docker login ghcr.io --username=ns328 --password-stdin=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
+        
       - name: push image into ghcr
         run: docker push ghcr.io/ns328/container-images/my-flask-app:v1
