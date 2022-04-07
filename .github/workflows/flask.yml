@@ -21,5 +21,8 @@ jobs:
       - name: build image
         run: docker build . -t my-flask-app:v1
         
-      - name: run image
-        run: docker run my-flask-app:v1
+      - name: tag image
+        run: docker tag my-flask-app:v1 ghcr.io/ns328/container-images/my-flask-app:v1
+        
+      - name: push image into ghcr
+        run: docker push ghcr.io/ns328/container-images/my-flask-app:v1
