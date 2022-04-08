@@ -22,7 +22,9 @@ jobs:
         run: docker build . -t my-flask-app:v1
         
       - name: give authentication
-        run: docker login ghcr.io --username=ns328 --password=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
+        run: docker login ghcr.io -u $ghcr_user -p $CR_PAT
+        
+#run: docker login ghcr.io --username=ns328 --password=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
         
       - name: tag image
         run: docker tag my-flask-app:v1 ghcr.io/ns328/container-images/my-flask-app:v1
