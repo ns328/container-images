@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
    
       - name: build image
-        run: docker build . -t namrata328/container-images/my-flask-app:v1
+        run: docker build . -t namrata328/my-flask-app:v1
         
       - name: push image
-        run: docker push namrata328/container-images/my-flask-app:v1
+        run: docker push namrata328/my-flask-app:v1
