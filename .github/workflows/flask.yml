@@ -21,8 +21,12 @@ jobs:
       - name: build image
         run: docker build . -t my-flask-app:v1
 
-      - name: give authentication
-        run: at ~/mypassword | docker login --username ns328 --password .
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.MYPASSWORD }}
+   
         
       - name: tag image
         run: docker tag my-flask-app:v1 ghcr.io/ns328/container-images/my-flask-app:v1
