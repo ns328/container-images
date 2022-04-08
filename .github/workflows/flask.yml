@@ -20,6 +20,13 @@ jobs:
       
       - name: build image
         run: docker build . -t my-flask-app:v1
+      
+      - name: docker login
+        uses: docker/login-actions@v1
+        with: 
+           registry: ghcr.io
+           ghcr_user: ${{ secrets.ns328 }}
+           CR_PAT: ${{ secrets.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 }}
         
       - name: give authentication
         run: docker login ghcr.io -u $ghcr_user -p $CR_PAT
